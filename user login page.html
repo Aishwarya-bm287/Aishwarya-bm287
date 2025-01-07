@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>Login Validation</title>
+  <script language="javascript">
+    function formValidator() 
+    {
+      var username = document.getElementById('uname');
+      var password = document.getElementById('pwd');
+      if (isEmpty(username) && isEmpty(password)) 
+      {
+        alert("Username and password are empty");
+        username.focus();
+        return false; 
+      }
+
+      if (!isEmpty(username) && isEmpty(password))
+       {
+        if (!isAlphabet(username)) 
+        {
+          alert("Please enter only alphabets for username");
+          username.focus();
+          return false;
+        }
+    }
+    
+      
+      if (isEmpty(username) && !isEmpty(password)) 
+      {
+        alert("Please enter only alphabets for username");
+        username.focus();
+        return false; 
+      }
+
+      if (!isEmpty(username) && isEmpty(password)) 
+      {
+        if (isAlphabet(username))
+         {
+          alert("Please enter password");
+          password.focus();
+          return false; 
+        }
+    }
+    if (!isEmpty(username) && !isEmpty(password)) 
+      {
+        if(!isAiphabet(username))
+        {
+        alert("Please enter only alphabets for username");
+        username.focus();
+        return false; 
+      }
+
+        return true; 
+      }
+
+      return false;
+    }
+
+    function isEmpty(elem)
+     {
+      return elem.value.length === 0; 
+    }
+
+    function isAlphabet(elem) 
+    {
+      var alphaExp = /^[a-zA-Z]+$/;
+      return elem.value.match(alphaExp) ? true : false;
+    }
+  </script>
+</head>
+<body bgColor="yellow">
+  <h1 align="center">USER LOGIN VALIDATION</h1>
+  <br><br>
+  <form name="form1" onSubmit="return formValidator()">
+    <center>
+      <table border="0" colsSpacing="4">
+        <tr>
+          <td>Username:</td>
+          <td><input type=text id="uname" name="uname"></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td><input type=password id="pwd" name="pwd"></td>
+        </tr>
+        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+        <tr>
+          <td><input type=submit value="SUBMIT" name="btn1"></td>
+          <td><input type=reset value="CANCEL" name="btn2"></td>
+        </tr>
+      </table>
+    </center>
+  </form>
+</body>
+</html>
